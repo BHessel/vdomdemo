@@ -12,6 +12,15 @@ function App() {
     setCount(count + 1);
   };
 
+  const doSomething = () => {
+    const label = document.getElementById("label");
+    if (label.innerHTML === 'Definitely') {
+      label.innerHTML = "She's Happy"
+    } else {
+      label.innerHTML = "Definitely"
+    }
+  }
+
   return (
     <div className="App">
       <h1>Virtual DOM Demo!</h1>
@@ -21,7 +30,7 @@ function App() {
       <button onClick={decrease}> - </button>
       <button onClick={increase}> + </button>
       <p>...add dogs?</p>
-      <button>Definitely</button>
+      <button id='label' onClick={doSomething}>Definitely</button>
     </div>
   );
 }
