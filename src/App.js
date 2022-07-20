@@ -3,23 +3,25 @@ import "./App.css";
 
 function App() {
   const [count, setCount] = useState(1);
+  const [totalDogs, setTotalDogs] = useState(1);
 
   const decrease = () => {
     setCount(count - 1);
   };
 
   const increase = () => {
-    setCount(count + 1);
+    //setTimeout for 3 seconds
+    setTimeout(() => {
+      setCount(count + 1);
+    }, 3000);
   };
 
   const doSomething = () => {
-    const label = document.getElementById("label");
-    if (label.innerHTML === 'Definitely') {
-      label.innerHTML = "She's Happy"
-    } else {
-      label.innerHTML = "Definitely"
-    }
-  }
+    //setTimeout for 3 seconds
+    setTimeout(() => {
+      setTotalDogs(totalDogs + 1);
+    }, 3000);
+  };
 
   return (
     <div className="App">
@@ -30,7 +32,9 @@ function App() {
       <button onClick={decrease}> - </button>
       <button onClick={increase}> + </button>
       <p>...add dogs?</p>
-      <button id='label' onClick={doSomething}>Definitely</button>
+      <button onClick={doSomething}>Definitely</button>
+
+      <p>Now we have {totalDogs} dogs!</p>
     </div>
   );
 }
